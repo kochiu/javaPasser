@@ -7,4 +7,8 @@ import org.junit.Test;
  */
 public class CommonTest {
 
+    @Test
+    public void testCommon() {
+        System.out.println("123");
+    }
 }
