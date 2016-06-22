@@ -91,7 +91,7 @@
 		</property>
 		<property name="lenientFallback" value="false" />
 		<property name="openLog" value="${logback.sql.openLog}" />
-		<property name="logLength" value="${logback.sql.logLength}" />
+		<!--<property name="logLength" value="${logback.sql.logLength}" />-->
 		<property name="slowLimit" value="${jdbc.slowQuery.limit}" />
 		<property name="ddlFlag" value="false" />
 	</bean>

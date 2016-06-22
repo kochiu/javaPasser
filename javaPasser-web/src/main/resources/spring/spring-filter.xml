@@ -41,7 +41,7 @@
 	</bean>
 
 	<bean id="sessionPersister" class="com.sztx.se.core.session.persistence.impl.RedisSessionPersister">
-		<property name="dynamicRedisSource" ref="dynamicRedisSource" />
+		<!--<property name="dynamicRedisSource" ref="dynamicRedisSource" />-->
 	</bean>
 
 	<bean id="sessionManager" class="com.sztx.se.core.session.SessionManager">
