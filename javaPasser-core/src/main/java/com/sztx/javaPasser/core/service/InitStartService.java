@@ -9,6 +9,6 @@ public class InitStartService implements StartupCallback {
 
 	@Override
 	public void businessHandle() {
-		System.out.println("demo startupCallback");
+		System.out.println("JAVA PASSER startupCallback");
 	}
 }

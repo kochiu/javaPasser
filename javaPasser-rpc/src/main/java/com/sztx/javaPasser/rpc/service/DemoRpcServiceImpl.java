@@ -14,8 +14,8 @@ public class DemoRpcServiceImpl implements DemoRpcService {
 
 	@Override
 	public String sayHello() {
-		System.out.println("demo rpc hello");
-		return "demo rpc hello";
+		System.out.println("java passer rpc hello");
+		return "java passer rpc hello";
 	}
 
 	@Override
