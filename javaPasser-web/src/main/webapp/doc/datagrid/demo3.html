@@ -1,10 +1,18 @@
 <script type="text/javascript">
-function doc_datagrid_demo_column() {
-    return [{name:'name', width:'150', label:'姓名'}, {name:'firstname', width:'120', label:'拼音姓'}, {name:'lastname', label:'拼音名'}]
-}
-function doc_datagrid_demo_data() {
-    return [{'name':'孙悟空','firstname':'Sun','lastname':'Wukong'},{'name':'罗宾汉','firstname':'Luo','lastname':'Binhan'},{'name':'美国队长','firstname':'Meiguo','lastname':'Duizhang'}]
-}
+    function doc_datagrid_demo_column() {
+        return [{name: 'name', width: '150', label: '姓名'}, {
+            name: 'firstname',
+            width: '120',
+            label: '拼音姓'
+        }, {name: 'lastname', label: '拼音名'}]
+    }
+    function doc_datagrid_demo_data() {
+        return [{'name': '孙悟空', 'firstname': 'Sun', 'lastname': 'Wukong'}, {
+            'name': '罗宾汉',
+            'firstname': 'Luo',
+            'lastname': 'Binhan'
+        }, {'name': '美国队长', 'firstname': 'Meiguo', 'lastname': 'Duizhang'}]
+    }
 </script>
 <div class="bjui-pageContent">
     <div style="padding:20px;">
@@ -34,6 +42,8 @@ function doc_datagrid_demo_data() {
 </div>
 <div class="bjui-pageFooter">
     <ul>
-        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+        <li>
+            <button type="button" class="btn-close" data-icon="close">关闭</button>
+        </li>
     </ul>
 </div>

@@ -14,19 +14,19 @@ import com.sztx.se.dataaccess.fastdfs.config.ImageInfo;
 @Service("imageService")
 public class ImageServiceImpl extends BaseServiceImpl implements ImageService {
 
-	@Autowired
-	private ImageFastdfsDAO imageFastdfsDAO;
-	
-	@Override
-	public String uploadImage(String filePath, String author, Map<String, String> extraInfo) {
-		ValidateUtil.isNotBlank(filePath, "文件路径不允许为空");
-		return imageFastdfsDAO.uploadImage(filePath, author, extraInfo);
-	}
+    @Autowired
+    private ImageFastdfsDAO imageFastdfsDAO;
 
-	@Override
-	public ImageInfo downloadImage(String fileId) {
-		ValidateUtil.isNotBlank(fileId, "文件id不允许为空");
-		return imageFastdfsDAO.downloadImage(fileId);
-	}
+    @Override
+    public String uploadImage(String filePath, String author, Map<String, String> extraInfo) {
+        ValidateUtil.isNotBlank(filePath, "文件路径不允许为空");
+        return imageFastdfsDAO.uploadImage(filePath, author, extraInfo);
+    }
+
+    @Override
+    public ImageInfo downloadImage(String fileId) {
+        ValidateUtil.isNotBlank(fileId, "文件id不允许为空");
+        return imageFastdfsDAO.downloadImage(fileId);
+    }
 
 }

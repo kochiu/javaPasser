@@ -9,14 +9,14 @@ import com.sztx.se.core.service.impl.BaseServiceImpl;
 
 @Service("messageService")
 public class MessageServiceImpl extends BaseServiceImpl implements MessageService {
-	
-	@Autowired(required = false)
-	private MqMessageSender mqMessageSender;
-	
-	@Override
-	public boolean sendCommentMsg(String message) {
-		mqMessageSender.sendMessage(message);
-		return true;
-	}
+
+    @Autowired(required = false)
+    private MqMessageSender mqMessageSender;
+
+    @Override
+    public boolean sendCommentMsg(String message) {
+        mqMessageSender.sendMessage(message);
+        return true;
+    }
 
 }

@@ -12,134 +12,141 @@
         </blockquote>
         <table class="table table-bordered table-striped table-hover">
             <thead>
-                <tr>
-                    <th>名称</th>
-                    <th>类型</th>
-                    <th>默认值</th>
-                    <th>描述</th>
-                </tr>
+            <tr>
+                <th>名称</th>
+                <th>类型</th>
+                <th>默认值</th>
+                <th>描述</th>
+            </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>name</td>
-                    <td>string</td>
-                    <td>null</td>
-                    <td>[可选] <span class="badge"><i>F</i></span> 该列字段名(关联json数据、xml数据、编辑及保存的数据)。<code>未设置name将不能进行添加\编辑等操作</code></td>
-                </tr>
-                <tr>
-                    <td>label</td>
-                    <td>string</td>
-                    <td>null</td>
-                    <td>[可选] <span class="badge"><i>D</i></span> 显示的列标题。</td>
-                </tr>
-                <tr>
-                    <td>width</td>
-                    <td>int</td>
-                    <td>50或HTML表格对应列的宽</td>
-                    <td>[可选] 列宽。</td>
-                </tr>
-                <tr>
-                    <td>align</td>
-                    <td>string</td>
-                    <td>left</td>
-                    <td>[可选] 对齐方式(left、center、right)。</td>
-                </tr>
-                <tr>
-                    <td>type</td>
-                    <td>string</td>
-                    <td>string</td>
-                    <td>[可选] <span class="badge"><i>F</i></span> 数据类型(string、boolean、select、textarea、date、lookup、spinner)。</td>
-                </tr>
-                <tr>
-                    <td>align</td>
-                    <td>string</td>
-                    <td>left</td>
-                    <td>[可选] 对齐方式(left、center、right)。</td>
-                </tr>
-                <tr>
-                    <td>add</td>
-                    <td>boolean</td>
-                    <td>true</td>
-                    <td>[可选] <span class="badge"><i>F</i></span> 允许该列添加数据。</td>
-                </tr>
-                <tr>
-                    <td>edit</td>
-                    <td>boolean</td>
-                    <td>true</td>
-                    <td>[可选] <span class="badge"><i>F</i></span> 允许该列编辑数据。</td>
-                </tr>
-                <tr>
-                    <td>attrs</td>
-                    <td>object</td>
-                    <td>null</td>
-                    <td>[可选] <span class="badge"><i>F</i></span> 编辑时，表单域的附加参数。示例：<code>{readonly:'readonly'}</code></td>
-                </tr>
-                <tr>
-                    <td>rule</td>
-                    <td>string</td>
-                    <td>null</td>
-                    <td>[可选] <span class="badge"><i>F</i></span> 编辑时，表单域名的验证规则。示例：<code>required;length(6)</code></td>
-                </tr>
-                <tr>
-                    <td>items</td>
-                    <td>array/function</td>
-                    <td>null</td>
-                    <td>[可选] <span class="badge"><i>F</i></span> 用于数据渲染或筛选\编辑时的select填充。array示例：<code>[{'true':'男'}, {'false':'女'}],</code>，function示例：<code>function() {return $.getJSON('/datagrid/demo-items-state.js')}</code></td>
-                </tr>
-                <tr>
-                    <td>render</td>
-                    <td>function(value)</td>
-                    <td>null</td>
-                    <td>[可选] <span class="badge"><i>F</i></span> 将列数据渲染成其他样式，方法参数value为datagrid数据提供的原始值。不显示空值示例：<code>function(value){return !value || value == 'null' ? '' : value}</code>，datagrid提供基于items的默认渲染：<code>$.datagrid.renderItem</code></td>
-                </tr>
-                <tr>
-                    <td>pattern</td>
-                    <td>string</td>
-                    <td>null</td>
-                    <td>[可选] <span class="badge"><i>F</i></span> 配合type='date'使用，设置日期格式。示例：<code>yyyy-MM-dd HH:mm</code></td>
-                </tr>
-                <tr>
-                    <td>calc</td>
-                    <td>string</td>
-                    <td>null</td>
-                    <td>[可选] <span class="badge"><i>F</i></span> 列统计，可选(count、sum、avg、min、max)。</td>
-                </tr>
-                <tr>
-                    <td>calcTit</td>
-                    <td>string</td>
-                    <td>null</td>
-                    <td>[可选] <span class="badge"><i>F</i></span> 列统计说明，对应calc(总数、合计、平均、最小、最大)。</td>
-                </tr>
-                <tr>
-                    <td>calcDecimal</td>
-                    <td>int</td>
-                    <td>2</td>
-                    <td>[可选] <span class="badge"><i>F</i></span> 列统计数据保留小数点位数。</td>
-                </tr>
-                <tr>
-                    <td>hide</td>
-                    <td>boolean</td>
-                    <td>false</td>
-                    <td>[可选] <span class="badge"><i>F</i></span> 是否隐藏该列。</td>
-                </tr>
-                <tr>
-                    <td>menu</td>
-                    <td>boolean</td>
-                    <td>true</td>
-                    <td>[可选] <span class="badge"><i>F</i></span> 列上是否出现菜单按钮（对于多表头，仅对字段列有效）。</td>
-                </tr>
-                <tr>
-                    <td>lock</td>
-                    <td>boolean</td>
-                    <td>false</td>
-                    <td>[可选] <span class="badge"><i>F</i></span> 是否锁定该列(尽量不用，影响速度)。</td>
-                </tr>
-                <tr>
-                    <td>quicksort</td>
-                    <td>boolean</td>
-                    <td>true</td>
-                    <td>[可选] <span class="badge"><i>F</i></span> 允许点击该列进行快速排序。</td>
-                </tr>
+            <tr>
+                <td>name</td>
+                <td>string</td>
+                <td>null</td>
+                <td>[可选] <span class="badge"><i>F</i></span>
+                    该列字段名(关联json数据、xml数据、编辑及保存的数据)。<code>未设置name将不能进行添加\编辑等操作</code></td>
+            </tr>
+            <tr>
+                <td>label</td>
+                <td>string</td>
+                <td>null</td>
+                <td>[可选] <span class="badge"><i>D</i></span> 显示的列标题。</td>
+            </tr>
+            <tr>
+                <td>width</td>
+                <td>int</td>
+                <td>50或HTML表格对应列的宽</td>
+                <td>[可选] 列宽。</td>
+            </tr>
+            <tr>
+                <td>align</td>
+                <td>string</td>
+                <td>left</td>
+                <td>[可选] 对齐方式(left、center、right)。</td>
+            </tr>
+            <tr>
+                <td>type</td>
+                <td>string</td>
+                <td>string</td>
+                <td>[可选] <span class="badge"><i>F</i></span> 数据类型(string、boolean、select、textarea、date、lookup、spinner)。
+                </td>
+            </tr>
+            <tr>
+                <td>align</td>
+                <td>string</td>
+                <td>left</td>
+                <td>[可选] 对齐方式(left、center、right)。</td>
+            </tr>
+            <tr>
+                <td>add</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>[可选] <span class="badge"><i>F</i></span> 允许该列添加数据。</td>
+            </tr>
+            <tr>
+                <td>edit</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>[可选] <span class="badge"><i>F</i></span> 允许该列编辑数据。</td>
+            </tr>
+            <tr>
+                <td>attrs</td>
+                <td>object</td>
+                <td>null</td>
+                <td>[可选] <span class="badge"><i>F</i></span> 编辑时，表单域的附加参数。示例：<code>{readonly:'readonly'}</code></td>
+            </tr>
+            <tr>
+                <td>rule</td>
+                <td>string</td>
+                <td>null</td>
+                <td>[可选] <span class="badge"><i>F</i></span> 编辑时，表单域名的验证规则。示例：<code>required;length(6)</code></td>
+            </tr>
+            <tr>
+                <td>items</td>
+                <td>array/function</td>
+                <td>null</td>
+                <td>[可选] <span class="badge"><i>F</i></span> 用于数据渲染或筛选\编辑时的select填充。array示例：<code>[{'true':'男'},
+                    {'false':'女'}],</code>，function示例：<code>function() {return
+                    $.getJSON('/datagrid/demo-items-state.js')}</code></td>
+            </tr>
+            <tr>
+                <td>render</td>
+                <td>function(value)</td>
+                <td>null</td>
+                <td>[可选] <span class="badge"><i>F</i></span> 将列数据渲染成其他样式，方法参数value为datagrid数据提供的原始值。不显示空值示例：<code>function(value){return
+                    !value || value == 'null' ? '' :
+                    value}</code>，datagrid提供基于items的默认渲染：<code>$.datagrid.renderItem</code></td>
+            </tr>
+            <tr>
+                <td>pattern</td>
+                <td>string</td>
+                <td>null</td>
+                <td>[可选] <span class="badge"><i>F</i></span> 配合type='date'使用，设置日期格式。示例：<code>yyyy-MM-dd HH:mm</code>
+                </td>
+            </tr>
+            <tr>
+                <td>calc</td>
+                <td>string</td>
+                <td>null</td>
+                <td>[可选] <span class="badge"><i>F</i></span> 列统计，可选(count、sum、avg、min、max)。</td>
+            </tr>
+            <tr>
+                <td>calcTit</td>
+                <td>string</td>
+                <td>null</td>
+                <td>[可选] <span class="badge"><i>F</i></span> 列统计说明，对应calc(总数、合计、平均、最小、最大)。</td>
+            </tr>
+            <tr>
+                <td>calcDecimal</td>
+                <td>int</td>
+                <td>2</td>
+                <td>[可选] <span class="badge"><i>F</i></span> 列统计数据保留小数点位数。</td>
+            </tr>
+            <tr>
+                <td>hide</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>[可选] <span class="badge"><i>F</i></span> 是否隐藏该列。</td>
+            </tr>
+            <tr>
+                <td>menu</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>[可选] <span class="badge"><i>F</i></span> 列上是否出现菜单按钮（对于多表头，仅对字段列有效）。</td>
+            </tr>
+            <tr>
+                <td>lock</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>[可选] <span class="badge"><i>F</i></span> 是否锁定该列(尽量不用，影响速度)。</td>
+            </tr>
+            <tr>
+                <td>quicksort</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>[可选] <span class="badge"><i>F</i></span> 允许点击该列进行快速排序。</td>
+            </tr>
             </tbody>
         </table>
         <h4>示例代码</h4>
@@ -265,6 +272,8 @@
 </div>
 <div class="bjui-pageFooter">
     <ul>
-        <li><button type="button" class="btn-close" data-icon="close">关闭</button></li>
+        <li>
+            <button type="button" class="btn-close" data-icon="close">关闭</button>
+        </li>
     </ul>
 </div>

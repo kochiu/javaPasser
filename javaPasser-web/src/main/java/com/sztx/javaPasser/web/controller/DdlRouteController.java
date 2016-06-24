@@ -23,24 +23,24 @@ import com.sztx.se.web.controller.BaseController;
 public class DdlRouteController extends BaseController {
 
 	/*@Autowired
-	private DdlRouteService ddlRouteService;*/
+    private DdlRouteService ddlRouteService;*/
 
-	@RequestMapping("/listDdlConfig")
-	public Result listDdlConfig(HttpServletRequest request, HttpServletResponse response, Model model) {
-		// 如果是导出请求，只需将需要导出的数据放到request中
-		List<DdlConfig> ddlConfigList = new ArrayList<>();
-		Result result = new Result(ResultCode.COMMON_SUCCESS, true);
-		result.setProperty("ddlConfigList", ddlConfigList);
-		return result;
-	}
+    @RequestMapping("/listDdlConfig")
+    public Result listDdlConfig(HttpServletRequest request, HttpServletResponse response, Model model) {
+        // 如果是导出请求，只需将需要导出的数据放到request中
+        List<DdlConfig> ddlConfigList = new ArrayList<>();
+        Result result = new Result(ResultCode.COMMON_SUCCESS, true);
+        result.setProperty("ddlConfigList", ddlConfigList);
+        return result;
+    }
 
-	@RequestMapping("/getDdlRoute")
-	public Result getDdlRoute(HttpServletRequest request, HttpServletResponse response, Model model) {
-		String table = getStringParameter("table");
-		String columnValue = getStringParameter("columnValue");
-		DdlRoute ddlRoute = null;
-		Result result = new Result(ResultCode.COMMON_SUCCESS, true);
-		result.setProperty("ddlRoute", ddlRoute);
-		return result;
-	}
+    @RequestMapping("/getDdlRoute")
+    public Result getDdlRoute(HttpServletRequest request, HttpServletResponse response, Model model) {
+        String table = getStringParameter("table");
+        String columnValue = getStringParameter("columnValue");
+        DdlRoute ddlRoute = null;
+        Result result = new Result(ResultCode.COMMON_SUCCESS, true);
+        result.setProperty("ddlRoute", ddlRoute);
+        return result;
+    }
 }

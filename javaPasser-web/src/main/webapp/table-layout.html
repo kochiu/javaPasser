@@ -1,15 +1,15 @@
 <script type="text/javascript">
-function do_open_layout(event, treeId, treeNode) {
-    if (treeNode.isParent) {
-        var zTree = $.fn.zTree.getZTreeObj(treeId)
-        
-        zTree.expandNode(treeNode)
-        return
+    function do_open_layout(event, treeId, treeNode) {
+        if (treeNode.isParent) {
+            var zTree = $.fn.zTree.getZTreeObj(treeId)
+
+            zTree.expandNode(treeNode)
+            return
+        }
+        $(event.target).bjuiajax('doLoad', {url: treeNode.url, target: treeNode.divid})
+
+        event.preventDefault()
     }
-    $(event.target).bjuiajax('doLoad', {url:treeNode.url, target:treeNode.divid})
-    
-    event.preventDefault()
-}
 </script>
 <div class="bjui-pageContent">
     <div style="float:left; width:200px;">
@@ -27,7 +27,7 @@ function do_open_layout(event, treeId, treeNode) {
             <fieldset style="height:100%;">
                 <legend>第一/三业务区</legend>
                 <div id="layout-01" style="height:94%; overflow:hidden;">
-                    
+
                 </div>
             </fieldset>
         </div>
@@ -35,7 +35,7 @@ function do_open_layout(event, treeId, treeNode) {
             <fieldset style="height:100%;">
                 <legend>第二/四业务区</legend>
                 <div id="layout-02" style="height:94%; overflow:hidden;">
-                    
+
                 </div>
             </fieldset>
         </div>

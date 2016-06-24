@@ -4,11 +4,11 @@ $.validator.config({
     //theme: 'yellow_right',
     defaultMsg: "This field is not valid.",
     loadingMsg: "Validating...",
-    
+
     // Custom rules
     rules: {
         digits: [/^\d+$/, "Please enter only digits."]
-        
+
     }
 })
 

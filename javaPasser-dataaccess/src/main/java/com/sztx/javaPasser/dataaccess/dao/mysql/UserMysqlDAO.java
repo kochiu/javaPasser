@@ -7,6 +7,6 @@ import com.sztx.se.dataaccess.mysql.BaseMysqlDAO;
 
 public interface UserMysqlDAO extends BaseMysqlDAO<UserDO> {
 
-	UserDO findByUsername(@Param("username") String username);
+    UserDO findByUsername(@Param("username") String username);
 
 }

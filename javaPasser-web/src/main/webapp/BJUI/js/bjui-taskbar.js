@@ -18,57 +18,61 @@
 
 +function ($) {
     'use strict';
-    
+
     // TASKBAR GLOBAL ELEMENTS
     // ======================
-    
+
     var $resizable
     var $taskBar, $taskBox, $taskList, $prevBtn, $nextBtn, taskDisabled, taskSelected, taskMargin
-    
-    $(function() {
-        var INIT_TASKBAR = function() {
-            $resizable   = $('#bjui-resizable')
-            $taskBar     = $(FRAG.taskbar)
-            $taskBox     = $taskBar.find('.taskbarContent')
-            $taskList    = $taskBox.find('> ul')
-            $prevBtn     = $taskBar.find('.taskbarLeft')
-            $nextBtn     = $taskBar.find('.taskbarRight')
+
+    $(function () {
+        var INIT_TASKBAR = function () {
+            $resizable = $('#bjui-resizable')
+            $taskBar = $(FRAG.taskbar)
+            $taskBox = $taskBar.find('.taskbarContent')
+            $taskList = $taskBox.find('> ul')
+            $prevBtn = $taskBar.find('.taskbarLeft')
+            $nextBtn = $taskBar.find('.taskbarRight')
             taskDisabled = 'disabled'
             taskSelected = 'selected'
-            taskMargin   = 'taskbarMargin'
-            
+            taskMargin = 'taskbarMargin'
+
             $('body').append('<!-- dialog task bar -->').append($taskBar)
-            
+
             //events
-            $prevBtn.click(function(e) { $(this).taskbar('scrollLeft') })
-            $nextBtn.click(function(e) { $(this).taskbar('scrollRight') })
+            $prevBtn.click(function (e) {
+                $(this).taskbar('scrollLeft')
+            })
+            $nextBtn.click(function (e) {
+                $(this).taskbar('scrollRight')
+            })
         }
         INIT_TASKBAR()
     })
-    
+
     // TASKBAR CLASS DEFINITION
     // ======================
-    
-    var Taskbar = function(element, options) {
+
+    var Taskbar = function (element, options) {
         this.$element = $(element)
-        this.$task    = null
-        this.options  = options
-        this.tools    = this.TOOLS()
+        this.$task = null
+        this.options = options
+        this.tools = this.TOOLS()
     }
-    
+
     Taskbar.DEFAULTS = {
         id: undefined,
         title: undefined
     }
-    
-    Taskbar.prototype.init = function() {
+
+    Taskbar.prototype.init = function () {
         var that = this
-        var $task = $taskList.find('#'+ this.options.id)
-        
+        var $task = $taskList.find('#' + this.options.id)
+
         this.show()
         if (!$task.length) {
             var taskFrag = '<li id="#taskid#"><div class="taskbutton"><span><i class="fa fa-th-large"></i></span> <span class="title">#title#</span></div><div class="close"><i class="fa fa-times-circle"></i></div></li>';
-            
+
             $task = $(taskFrag.replace('#taskid#', this.options.id).replace('#title#', this.options.title))
             $task.appendTo($taskList)
         } else {
@@ -77,14 +81,14 @@
         this.contextmenu($task)
         this.switchTask($task)
         this.tools.scrollTask($task)
-        
+
         //events
-        $task.click(function(e) {
+        $task.click(function (e) {
             if ($(e.target).closest('div').hasClass('close') || $(e.target).hasClass('close')) {
                 $task.dialog('close', that.options.id)
             } else {
                 var $dialog = $('body').data(that.options.id)
-                
+
                 if ($task.hasClass('selected')) {
                     $dialog.find('.dialogHeader a.minimize').trigger('click')
                 } else {
@@ -93,56 +97,56 @@
                     } else {
                         $dialog.trigger('click')
                         $task.addClass(taskSelected)
-                    }   
+                    }
                 }
                 that.scrollCurrent($task)
             }
-            
+
             return false
         })
     }
-    
-    Taskbar.prototype.TOOLS = function() {
-        var that  = this
+
+    Taskbar.prototype.TOOLS = function () {
+        var that = this
         var tools = {
-            scrollCurrent: function() {
+            scrollCurrent: function () {
                 var iW = this.tasksW(this.getTasks())
-                
+
                 if (iW > this.getTaskBarW()) {
                     var $tools = this
-                    var lTask  = $taskList.find('> li:last-child')
-                    var left   = this.getTaskBarW() - lTask.position().left - lTask.outerWidth(true)
-                    
-                    $taskList.animate({left: left}, 200, function() {
+                    var lTask = $taskList.find('> li:last-child')
+                    var left = this.getTaskBarW() - lTask.position().left - lTask.outerWidth(true)
+
+                    $taskList.animate({left: left}, 200, function () {
                         $tools.ctrlScrollBtn()
                     })
                 } else {
                     this.ctrlScrollBtn()
                 }
             },
-            getTaskBarW: function() {
-                return $taskBox.width()- ($prevBtn.is(':hidden') ? $prevBtn.width() + 2 : 0) - ($nextBtn.is(':hidden') ? $nextBtn.width() + 2 : 0)
+            getTaskBarW: function () {
+                return $taskBox.width() - ($prevBtn.is(':hidden') ? $prevBtn.width() + 2 : 0) - ($nextBtn.is(':hidden') ? $nextBtn.width() + 2 : 0)
             },
-            scrollTask: function($task) {
+            scrollTask: function ($task) {
                 var $tools = this
-                
+
                 if ($task.position().left + this.getLeft() + $task.outerWidth() > this.getBarWidth()) {
-                    var left = this.getTaskBarW() - $task.position().left  - $task.outerWidth(true) - 2
-                    
-                    $taskList.animate({left:left}, 200, function() {
+                    var left = this.getTaskBarW() - $task.position().left - $task.outerWidth(true) - 2
+
+                    $taskList.animate({left: left}, 200, function () {
                         $tools.ctrlScrollBtn()
                     })
                 } else if ($task.position().left + this.getLeft() < 0) {
                     var left = this.getLeft() - ($task.position().left + this.getLeft())
-                    
-                    $taskList.animate({left:left}, 200, function() {
+
+                    $taskList.animate({left: left}, 200, function () {
                         $tools.ctrlScrollBtn()
                     })
                 }
             },
-            ctrlScrollBtn: function() {
+            ctrlScrollBtn: function () {
                 var iW = this.tasksW(this.getTasks())
-                
+
                 if (this.getTaskBarW() > iW) {
                     $taskBox.removeClass(taskMargin)
                     $nextBtn.hide()
@@ -156,85 +160,85 @@
                     if (this.getLeft() <= this.getTaskBarW() - iW) $nextBtn.addClass(taskDisabled)
                 }
             },
-            getLeft: function(){
+            getLeft: function () {
                 return $taskList.position().left
             },
-            visibleStart: function() {
+            visibleStart: function () {
                 var iLeft = this.getLeft()
                 var jTasks = this.getTasks()
-                
+
                 for (var i = 0; i < jTasks.size(); i++) {
                     if (jTasks.eq(i).position().left + jTasks.eq(i).outerWidth(true) + iLeft >= 0) return jTasks.eq(i)
                 }
-                
+
                 return jTasks.eq(0)
             },
-            visibleEnd: function() {
+            visibleEnd: function () {
                 var iLeft = this.getLeft()
                 var jTasks = this.getTasks()
-                
+
                 for (var i = 0; i < jTasks.size(); i++) {
                     if (jTasks.eq(i).position().left + jTasks.eq(i).outerWidth(true) + iLeft > this.getBarWidth()) return jTasks.eq(i)
                 }
-                
+
                 return jTasks.eq(jTasks.size() - 1)
             },
-            getTasks: function() {
+            getTasks: function () {
                 return $taskList.find('> li')
             },
-            tasksW: function(jTasks) {
+            tasksW: function (jTasks) {
                 var iW = 0
-                
-                jTasks.each(function() {
+
+                jTasks.each(function () {
                     iW += $(this).outerWidth(true)
                 })
-                
+
                 return iW
             },
-            getBarWidth: function() {
+            getBarWidth: function () {
                 return $taskBar.innerWidth()
             },
-            getCurrent: function() {
-                return $taskList.find('li.'+ taskSelected)
+            getCurrent: function () {
+                return $taskList.find('li.' + taskSelected)
             }
         }
-        
+
         return tools
     }
-    
-    Taskbar.prototype.contextmenu = function($obj) {
+
+    Taskbar.prototype.contextmenu = function ($obj) {
         var that = this
-        
+
         $obj.contextmenu({
             id: 'dialogCM',
             bindings: {
-                reload: function(t) {
+                reload: function (t) {
                     t.dialog('refresh', that.options.id)
                 },
-                closeCurrent: function(t, m) {
+                closeCurrent: function (t, m) {
                     var $obj = t.isTag('li') ? t : that.tools.getCurrent()
-                    
+
                     $obj.find('.close').trigger('click')
                 },
-                closeOther: function(t, m){
+                closeOther: function (t, m) {
                     var $tasks = $taskList.find('> li').not(t)
-                    
-                    $tasks.each(function(i) {
+
+                    $tasks.each(function (i) {
                         $(this).find('.close').trigger('click')
                     })
                 },
-                closeAll: function(t, m) {
+                closeAll: function (t, m) {
                     var $tasks = that.tools.getTasks()
-                    
-                    $tasks.each(function(i) {
+
+                    $tasks.each(function (i) {
                         $(this).find('.close').trigger('click')
                     })
                 }
             },
-            ctrSub: function(t, m) {
+            ctrSub: function (t, m) {
                 var mCur = m.find('[rel="closeCurrent"]')
                 var mOther = m.find('[rel="closeOther"]')
-                
+
                 if (!that.tools.getCurrent().length) {
                     mCur.addClass(taskDisabled)
                     mOther.addClass(taskDisabled)
@@ -245,12 +249,12 @@
             }
         })
     }
-    
-    Taskbar.prototype.closeDialog = function(task) {
+
+    Taskbar.prototype.closeDialog = function (task) {
         var $task = (typeof task == 'string') ? this.getTask(task) : task
-        
+
         if (!$task || !$task.length) return
-        
+
         $task.remove()
         if (this.tools.getTasks().size() == 0) {
             this.hide()
@@ -258,107 +262,124 @@
         this.tools.scrollCurrent()
         this.$element.removeData('bjui.taskbar')
     }
-    
-    Taskbar.prototype.minimize = function(dialog) {
-        var that   = this
+
+    Taskbar.prototype.minimize = function (dialog) {
+        var that = this
         var $dialog = (typeof dialog == 'string') ? $('body').data('dialog') : dialog
-        var $task   = this.getTask($dialog.data('options').id)
-        
+        var $task = this.getTask($dialog.data('options').id)
+
         $resizable.css({
             top: $dialog.css('top'),
             left: $dialog.css('left'),
             height: $dialog.css('height'),
             width: $dialog.css('width')
-        }).show().animate({top:$(window).height() - 60, left:$task.position().left, width:$task.outerWidth(), height:$task.outerHeight()}, 250, function() {
+        }).show().animate({
+            top: $(window).height() - 60,
+            left: $task.position().left,
+            width: $task.outerWidth(),
+            height: $task.outerHeight()
+        }, 250, function () {
             $(this).hide()
             that.inactive($task)
         })
     }
-    
+
     /**
      * @param {Object} id or dialog
      */
-    Taskbar.prototype.restoreDialog = function($dialog) {
+    Taskbar.prototype.restoreDialog = function ($dialog) {
         var $task = this.getTask($dialog.data('options').id)
-        
-        $resizable.css({top:$(window).height() - 60, left:$task.position().left, height:$task.outerHeight(), width:$task.outerWidth()})
+
+        $resizable.css({
+            top: $(window).height() - 60,
+            left: $task.position().left,
+            height: $task.outerHeight(),
+            width: $task.outerWidth()
+        })
             .show()
-            .animate({top:$dialog.css('top'), left:$dialog.css('left'), width:$dialog.css('width'), height:$dialog.css('height')}, 250, function() {
+            .animate({
+                top: $dialog.css('top'),
+                left: $dialog.css('left'),
+                width: $dialog.css('width'),
+                height: $dialog.css('height')
+            }, 250, function () {
                 $(this).hide()
                 $dialog.show()
             })
-        
+
         this.switchTask($task)
     }
-    
+
     /**
      * @param {Object} id
      */
-    Taskbar.prototype.inactive = function(task) {
+    Taskbar.prototype.inactive = function (task) {
         var $task = (typeof task == 'string') ? this.getTask(task) : task
-        
+
         $task.removeClass(taskSelected)
     }
-    
-    Taskbar.prototype.scrollLeft = function() {
+
+    Taskbar.prototype.scrollLeft = function () {
         var $task = this.tools.visibleStart()
-        
+
         this.tools.scrollTask($task)
     }
-    
-    Taskbar.prototype.scrollRight = function() {
+
+    Taskbar.prototype.scrollRight = function () {
         var $task = this.tools.visibleEnd()
-        
+
         this.tools.scrollTask($task)
     }
-    
-    Taskbar.prototype.scrollCurrent = function($task) {
+
+    Taskbar.prototype.scrollCurrent = function ($task) {
         this.tools.scrollTask($task)
     }
-    
+
     /**
      * @param {Object} id or $task
      */
-    Taskbar.prototype.switchTask = function(task) {
+    Taskbar.prototype.switchTask = function (task) {
         this.tools.getCurrent().removeClass(taskSelected)
         var $task = (typeof task == 'string') ? this.getTask(task) : task
-        
+
         $task.addClass(taskSelected)
     }
-    
-    Taskbar.prototype.getTask = function(id) {
-        return $taskList.find('#'+ id)
+
+    Taskbar.prototype.getTask = function (id) {
+        return $taskList.find('#' + id)
     }
-    
-    Taskbar.prototype.changeTitle = function(id, title) {
+
+    Taskbar.prototype.changeTitle = function (id, title) {
         var $task = this.getTask(id)
-        
+
         if ($task && title) $task.find('.title').html(title)
     }
-    
-    Taskbar.prototype.show = function() {
-        if ($taskBar.is(':hidden')) $taskBar.show().animate({bottom:0}, 500)
+
+    Taskbar.prototype.show = function () {
+        if ($taskBar.is(':hidden')) $taskBar.show().animate({bottom: 0}, 500)
     }
-    
-    Taskbar.prototype.hide = function() {
-        if ($taskBar.is(':visible')) $taskBar.animate({bottom:-50}, 500, function() { $taskBar.hide() })
+
+    Taskbar.prototype.hide = function () {
+        if ($taskBar.is(':visible')) $taskBar.animate({bottom: -50}, 500, function () {
+            $taskBar.hide()
+        })
     }
-    
+
     // TASKBAR PLUGIN DEFINITION
     // =======================
-    
+
     function Plugin(option) {
         var args = arguments
         var property = option
-        
+
         return this.each(function () {
-            var $this   = $(this)
+            var $this = $(this)
             var options = $.extend({}, Taskbar.DEFAULTS, $this.data(), typeof option == 'object' && option)
-            var data    = $this.data('bjui.taskbar')
-            
+            var data = $this.data('bjui.taskbar')
+
             if (!data) $this.data('bjui.taskbar', (data = new Taskbar(this, options)))
             else if (data.options.id != options.id) $this.data('bjui.taskbar', (data = new Taskbar(this, options)))
-            
+
             if (typeof property == 'string' && $.isFunction(data[property])) {
                 [].shift.apply(args)
                 if (!args) data[property]()
@@ -371,15 +392,15 @@
 
     var old = $.fn.taskbar
 
-    $.fn.taskbar             = Plugin
+    $.fn.taskbar = Plugin
     $.fn.taskbar.Constructor = Taskbar
-    
+
     // TASKBAR NO CONFLICT
     // =================
-    
+
     $.fn.taskbar.noConflict = function () {
         $.fn.taskbar = old
         return this
     }
-    
+
 }(jQuery);

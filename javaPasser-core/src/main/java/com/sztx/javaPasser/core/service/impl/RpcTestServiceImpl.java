@@ -12,20 +12,20 @@ import com.sztx.se.rpc.dubbo.client.DubboClientFactory;
 
 @Service("rpcTestService")
 public class RpcTestServiceImpl implements RpcTestService {
-	
-	@Autowired(required = false)
-	private DubboClientFactory dubboClientFactory;
 
-	@Override
-	public String testRpc() {
-		DemoRpcService demoRpcService = dubboClientFactory.getDubboClient("demoRpcService");
-		TestRpcService testRpcService = dubboClientFactory.getDubboClient("testRpcService");
-		UserRpcService userRpcService = dubboClientFactory.getDubboClient("userRpcService");
-		String m = demoRpcService.say("haha");
-		User user = userRpcService.findUser("xiaxiaB");
-		System.out.println(user);
-		testRpcService.test();
-		return m;
-	}
+    @Autowired(required = false)
+    private DubboClientFactory dubboClientFactory;
+
+    @Override
+    public String testRpc() {
+        DemoRpcService demoRpcService = dubboClientFactory.getDubboClient("demoRpcService");
+        TestRpcService testRpcService = dubboClientFactory.getDubboClient("testRpcService");
+        UserRpcService userRpcService = dubboClientFactory.getDubboClient("userRpcService");
+        String m = demoRpcService.say("haha");
+        User user = userRpcService.findUser("xiaxiaB");
+        System.out.println(user);
+        testRpcService.test();
+        return m;
+    }
 
 }
