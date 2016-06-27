@@ -10,9 +10,9 @@ public class TestRpcServiceImpl implements TestRpcService {
 
     @Override
     public String test() {
-        throw new BusinessException("AAAAAA");
-//		System.out.println("test");
-//		return "test";
+//        throw new BusinessException("AAAAAA");
+		System.out.println("test");
+		return "test";
     }
 
 }

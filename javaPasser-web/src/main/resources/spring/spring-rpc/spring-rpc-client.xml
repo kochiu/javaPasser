@@ -23,7 +23,7 @@
     </bean>
 
     <bean id="dynamicDubboClient" class="com.sztx.se.rpc.dubbo.source.DynamicDubboClient">
-        <property name="openLog" value="${logback.dubbo.openLog}"/>
+        <!--<property name="openLog" value="${logback.dubbo.openLog}"/>-->
     </bean>
 
     <bean id="dynamicCreateDubboClientManager" class="com.sztx.se.rpc.dubbo.source.DynamicCreateDubboClientManager">

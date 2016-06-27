@@ -110,6 +110,15 @@ public class ExampleController extends BaseController {
         return result;
     }
 
+    @RequestMapping(value = "/testGetRpc")
+    public Result testGetRpc(HttpServletRequest request, Model model) {
+        String m = rpcTestService.testRpc();
+        // 返回页面
+        Result result = new Result(ResultCode.COMMON_SUCCESS, true);
+        result.setProperty("value", m);
+        return result;
+    }
+
     @RequestMapping(value = "/testMq")
     public Result testMq(HttpServletRequest request, Model model) {
         String message = "{\"itemHost\":\"item.sztx.com\",\"itemId\":\"121345325\",\"abtestKey\":\"A\",\"pageContent\":\"<html>啊啊啊啊</html>\", \"action\":\"add\"}";
