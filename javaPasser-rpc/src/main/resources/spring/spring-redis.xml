@@ -23,7 +23,7 @@
     </bean>
 
     <!-- 集群 -->
-    <bean id="redisSentinel1" class="com.sztx.se.dataaccess.redis.config.RedisSentinelConfig">
+    <bean id="redisSentinel1" class="com.kochiu.se.dataaccess.redis.config.RedisSentinelConfig">
         <property name="masterName" value="${redis.masterName1}"/>
         <property name="sentinelAddrs" value="${redis.addresses1}"/>
     </bean>
@@ -41,7 +41,7 @@
         <property name="hashValueSerializer" ref="jdkSerializationRedisSerializer"/>
     </bean>
 
-    <bean id="redisSentinel2" class="com.sztx.se.dataaccess.redis.config.RedisSentinelConfig">
+    <bean id="redisSentinel2" class="com.kochiu.se.dataaccess.redis.config.RedisSentinelConfig">
         <property name="masterName" value="${redis.masterName2}"/>
         <property name="sentinelAddrs" value="${redis.addresses2}"/>
     </bean>
@@ -59,7 +59,7 @@
         <property name="hashValueSerializer" ref="jdkSerializationRedisSerializer"/>
     </bean>
 
-    <bean id="redisTemplateProxy" class="com.sztx.se.dataaccess.redis.template.RedisTemplateProxy">
+    <bean id="redisTemplateProxy" class="com.kochiu.se.dataaccess.redis.template.RedisTemplateProxy">
         <property name="redisSourceKey" value="${redis.key}"/>
         <property name="redisTemplateList">
             <list>
@@ -74,12 +74,12 @@
     <bean id="jdkSerializationRedisSerializer"
           class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
 
-    <bean id="dynamicRedisSource" class="com.sztx.se.dataaccess.redis.source.DynamicRedisSource">
+    <bean id="dynamicRedisSource" class="com.kochiu.se.dataaccess.redis.source.DynamicRedisSource">
         <property name="stringSerializer" ref="stringRedisSerializer"/>
     </bean>
 
     <bean id="dynamicCreateRedisSourceManager"
-          class="com.sztx.se.dataaccess.redis.source.DynamicCreateRedisSourceManager">
+          class="com.kochiu.se.dataaccess.redis.source.DynamicCreateRedisSourceManager">
         <property name="dynamicRedisSource" ref="dynamicRedisSource"/>
     </bean>
 

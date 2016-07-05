@@ -20,32 +20,32 @@
         </sec:filter-chain-map>
     </bean>-->
 
-    <bean id="sessionFilter" class="com.sztx.se.web.filter.SessionFilter">
+    <bean id="sessionFilter" class="com.kochiu.se.web.filter.SessionFilter">
         <property name="sessionConfig" ref="sessionConfig"/>
         <property name="sessionManager" ref="sessionManager"/>
     </bean>
 
-    <bean id="characterHandlingFilter" class="com.sztx.se.web.filter.CharacterHandlingFilter">
+    <bean id="characterHandlingFilter" class="com.kochiu.se.web.filter.CharacterHandlingFilter">
         <property name="encoding" value="UTF-8"/>
         <property name="forceEncoding" value="true"/>
     </bean>
 
-    <!--<bean id="encryptFilter" class="com.sztx.se.web.filter.EncryptFilter">
+    <!--<bean id="encryptFilter" class="com.kochiu.se.web.filter.EncryptFilter">
         <property name="encrypt" value="${response.encrypt}" />
         &lt;!&ndash; secretKey可以为空，不为空的情况下则必须长度16位 &ndash;&gt;
         <property name="secretKey" value="${response.secretKey}" />
     </bean>-->
 
-    <bean id="sessionConfig" class="com.sztx.se.core.session.config.SessionConfig">
+    <bean id="sessionConfig" class="com.kochiu.se.core.session.config.SessionConfig">
         <property name="domain" value="${session.domain}"/>
         <property name="path" value="${session.path}"/>
     </bean>
 
-    <bean id="sessionPersister" class="com.sztx.se.core.session.persistence.impl.RedisSessionPersister">
+    <bean id="sessionPersister" class="com.kochiu.se.core.session.persistence.impl.RedisSessionPersister">
         <!--<property name="dynamicRedisSource" ref="dynamicRedisSource" />-->
     </bean>
 
-    <bean id="sessionManager" class="com.sztx.se.core.session.SessionManager">
+    <bean id="sessionManager" class="com.kochiu.se.core.session.SessionManager">
         <property name="sessionPersister" ref="sessionPersister"/>
     </bean>
 

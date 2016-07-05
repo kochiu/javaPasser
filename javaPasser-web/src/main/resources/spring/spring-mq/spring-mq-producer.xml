@@ -18,16 +18,16 @@
         <property name="routingKey" value="${mq.producer.routing.key}"/>
     </bean>
 
-    <bean id="rabbitTemplateProxy" class="com.sztx.se.core.mq.producer.RabbitTemplateProxy">
+    <bean id="rabbitTemplateProxy" class="com.kochiu.se.core.mq.producer.RabbitTemplateProxy">
         <property name="rabbitTemplate" ref="rabbitTemplate"/>
         <property name="isDefault" value="${mq.producer.isDefault}"/>
     </bean>
 
-    <bean id="mqMessageSender" class="com.sztx.se.core.mq.source.DynamicMqMessageSender">
+    <bean id="mqMessageSender" class="com.kochiu.se.core.mq.source.DynamicMqMessageSender">
         <property name="openLog" value="${logback.mq.openLog}"/>
     </bean>
 
-    <bean id="dynamicCreateMqProducerManager" class="com.sztx.se.core.mq.source.DynamicCreateMqProducerManager">
+    <bean id="dynamicCreateMqProducerManager" class="com.kochiu.se.core.mq.source.DynamicCreateMqProducerManager">
         <property name="dynamicMqMessageSender" ref="mqMessageSender"/>
     </bean>
 </beans>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns="http://code.sztx.com/schema/ddl" targetNamespace="http://code.sztx.com/schema/ddl"
+<xs:schema xmlns="http://code.kochiu.com/schema/ddl" targetNamespace="http://code.kochiu.com/schema/ddl"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            elementFormDefault="qualified">
     <xs:element name="config">

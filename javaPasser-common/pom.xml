@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <groupId>com.sztx.systemframework.javaPasser</groupId>
+        <groupId>com.kochiu.systemframework.javaPasser</groupId>
         <artifactId>javaPasser-project</artifactId>
         <version>1.0.0</version>
     </parent>
@@ -17,8 +17,12 @@
     <dependencies>
         <!-- se -->
         <dependency>
-            <groupId>com.sztx.systemframework</groupId>
+            <groupId>com.kochiu.systemframework</groupId>
             <artifactId>se</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kochiu.javaPasser.sdk</groupId>
+            <artifactId>javaPasser-sdk</artifactId>
         </dependency>
     </dependencies>
     <build>

@@ -15,7 +15,7 @@
 		http://www.springframework.org/schema/cache 
     	http://www.springframework.org/schema/cache/spring-cache.xsd">
 
-    <bean id="scheduleConfigServer" class="com.sztx.se.core.tbschedule.config.ScheduleConfigServer">
+    <bean id="scheduleConfigServer" class="com.kochiu.se.core.tbschedule.config.ScheduleConfigServer">
         <property name="applicationName" value="${tbschedule.application}"/>
         <property name="serverAddress" value="${tbschedule.serverAddress}"/>
         <property name="username" value="${tbschedule.username}"/>
@@ -24,15 +24,15 @@
         <property name="isDefault" value="${tbschedule.isDefault}"/>
     </bean>
 
-    <bean id="dynamicSchedule" class="com.sztx.se.core.tbschedule.source.DynamicSchedule">
+    <bean id="dynamicSchedule" class="com.kochiu.se.core.tbschedule.source.DynamicSchedule">
         <!--<property name="openLog" value="${logback.tbschedule.openLog}" />-->
     </bean>
 
-    <bean id="dynamicCreateScheduleManager" class="com.sztx.se.core.tbschedule.source.DynamicCreateScheduleManager">
+    <bean id="dynamicCreateScheduleManager" class="com.kochiu.se.core.tbschedule.source.DynamicCreateScheduleManager">
         <property name="dynamicSchedule" ref="dynamicSchedule"/>
     </bean>
 
-    <bean id="scheduleManager" class="com.sztx.se.core.tbschedule.component.ScheduleManager">
+    <bean id="scheduleManager" class="com.kochiu.se.core.tbschedule.component.ScheduleManager">
         <property name="dynamicSchedule" ref="dynamicSchedule"/>
     </bean>
 

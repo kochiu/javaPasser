@@ -25,16 +25,16 @@
         <property name="configuration" ref="hbaseConfiguration"/>
     </bean>
 
-    <bean id="hbaseTemplateProxy" class="com.sztx.se.dataaccess.hbase.template.HbaseTemplateProxy">
+    <bean id="hbaseTemplateProxy" class="com.kochiu.se.dataaccess.hbase.template.HbaseTemplateProxy">
         <property name="hbaseSourceKey" value="${hbase.key}"/>
         <property name="hbaseTemplate" ref="hbaseTemplate"/>
         <property name="isDefault" value="${hbase.isDefault}"/>
     </bean>
 
-    <bean id="dynamicHbaseSource" class="com.sztx.se.dataaccess.hbase.source.DynamicHbaseSource"/>
+    <bean id="dynamicHbaseSource" class="com.kochiu.se.dataaccess.hbase.source.DynamicHbaseSource"/>
 
     <bean id="dynamicCreateHbaseSourceManager"
-          class="com.sztx.se.dataaccess.hbase.source.DynamicCreateHbaseSourceManager">
+          class="com.kochiu.se.dataaccess.hbase.source.DynamicCreateHbaseSourceManager">
         <property name="dynamicHbaseSource" ref="dynamicHbaseSource"/>
     </bean>
 </beans>

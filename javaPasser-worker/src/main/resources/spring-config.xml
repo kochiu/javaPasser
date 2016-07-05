@@ -17,7 +17,7 @@
 
     <!-- 自动扫描的包名 -->
     <context:component-scan
-            base-package="com.sztx.javaPasser.worker.*,com.sztx.javaPasser.core.*,com.sztx.javaPasser.dataaccess.*,com.sztx.javaPasser.rpc.*"/>
+            base-package="com.kochiu.javaPasser.worker.*,com.kochiu.javaPasser.core.*,com.kochiu.javaPasser.dataaccess.*,com.kochiu.javaPasser.rpc.*"/>
 
     <import resource="spring/spring-aop.xml"/>
     <import resource="spring/spring-mysql.xml"/>

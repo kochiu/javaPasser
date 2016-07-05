@@ -7,26 +7,26 @@
 	     http://code.alibabatech.com/schema/dubbo
 	     http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-    <bean id="demoRpcService" class="com.sztx.se.rpc.dubbo.client.DubboClient">
-        <property name="interfaceName" value="com.sztx.javaPasser.rpc.api.service.DemoRpcService"/>
+    <bean id="demoRpcService" class="com.kochiu.se.rpc.dubbo.client.DubboClient">
+        <property name="interfaceName" value="com.kochiu.javaPasser.rpc.api.service.DemoRpcService"/>
         <property name="protocol" value="dubbo"/>
     </bean>
 
-    <bean id="testRpcService" class="com.sztx.se.rpc.dubbo.client.DubboClient">
-        <property name="interfaceName" value="com.sztx.javaPasser.rpc.api.service.TestRpcService"/>
+    <bean id="testRpcService" class="com.kochiu.se.rpc.dubbo.client.DubboClient">
+        <property name="interfaceName" value="com.kochiu.javaPasser.rpc.api.service.TestRpcService"/>
         <property name="protocol" value="dubbo"/>
     </bean>
 
-    <bean id="userRpcService" class="com.sztx.se.rpc.dubbo.client.DubboClient">
-        <property name="interfaceName" value="com.sztx.javaPasser.rpc.api.service.UserRpcService"/>
+    <bean id="userRpcService" class="com.kochiu.se.rpc.dubbo.client.DubboClient">
+        <property name="interfaceName" value="com.kochiu.javaPasser.rpc.api.service.UserRpcService"/>
         <property name="protocol" value="dubbo"/>
     </bean>
 
-    <bean id="dynamicDubboClient" class="com.sztx.se.rpc.dubbo.source.DynamicDubboClient">
+    <bean id="dynamicDubboClient" class="com.kochiu.se.rpc.dubbo.source.DynamicDubboClient">
         <!--<property name="openLog" value="${logback.dubbo.openLog}"/>-->
     </bean>
 
-    <bean id="dynamicCreateDubboClientManager" class="com.sztx.se.rpc.dubbo.source.DynamicCreateDubboClientManager">
+    <bean id="dynamicCreateDubboClientManager" class="com.kochiu.se.rpc.dubbo.source.DynamicCreateDubboClientManager">
         <property name="dynamicDubboClient" ref="dynamicDubboClient"/>
     </bean>
 

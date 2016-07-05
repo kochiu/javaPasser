@@ -16,25 +16,25 @@
     	http://www.springframework.org/schema/cache/spring-cache.xsd">
 
     <!-- 自动扫描的包名 -->
-    <context:component-scan base-package="com.sztx.javaPasser.web.*"/>
+    <context:component-scan base-package="com.kochiu.javaPasser.web.*"/>
 
     <!-- 默认的注解映射的支持 -->
     <mvc:annotation-driven>
         <mvc:return-value-handlers>
             <!-- 添加统一返回值的处理器 -->
-            <bean class="com.sztx.se.web.handler.CommonMethodReturnValueHandler"/>
+            <bean class="com.kochiu.se.web.handler.CommonMethodReturnValueHandler"/>
         </mvc:return-value-handlers>
     </mvc:annotation-driven>
 
     <!-- 添加统一异常处理器 -->
-    <bean class="com.sztx.se.web.handler.CommonExceptionHandler">
+    <bean class="com.kochiu.se.web.handler.CommonExceptionHandler">
     </bean>
 
     <!-- 拦截器 -->
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <bean class="com.sztx.se.web.interceptor.LogInterceptor">
+            <bean class="com.kochiu.se.web.interceptor.LogInterceptor">
                 <property name="openLog" value="${logback.http.openLog}"/>
             </bean>
         </mvc:interceptor>

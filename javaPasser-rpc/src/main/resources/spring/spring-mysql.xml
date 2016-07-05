@@ -45,7 +45,7 @@
         <property name="validationQuery" value="select 1 from dual"/>
     </bean>
 
-    <bean id="dataSourceProxy" class="com.sztx.se.dataaccess.mysql.client.DataSourceProxy">
+    <bean id="dataSourceProxy" class="com.kochiu.se.dataaccess.mysql.client.DataSourceProxy">
         <property name="dataSource" ref="dataSource"/>
         <property name="dbName" value="${jdbc.db}"/>
         <property name="dataSourceKey" value="${jdbc.key}"/>
@@ -63,13 +63,13 @@
 
     <!-- sqlSessionFactory -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
-          p:typeAliasesPackage="com.sztx.javaPasser.dataaccess.domain">
+          p:typeAliasesPackage="com.kochiu.javaPasser.dataaccess.domain">
         <property name="dataSource" ref="dynamicDataSource"/>
         <property name="configLocation" value="classpath:/sqlmap-config.xml"/>
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
-          p:basePackage="com.sztx.javaPasser.dataaccess.dao.mysql"
+          p:basePackage="com.kochiu.javaPasser.dataaccess.dao.mysql"
           p:sqlSessionFactoryBeanName="sqlSessionFactory"/>
 
     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
@@ -84,7 +84,7 @@
         <property name="dataSource" ref="dynamicDataSource"/>
     </bean>
 
-    <bean id="dynamicDataSource" class="com.sztx.se.dataaccess.mysql.source.DynamicDataSource">
+    <bean id="dynamicDataSource" class="com.kochiu.se.dataaccess.mysql.source.DynamicDataSource">
         <property name="targetDataSources">
             <map>
                 <entry value-ref="dataSource" key="${jdbc.key}"/>
@@ -98,7 +98,7 @@
     </bean>
 
     <bean id="dynamicCreateDataSourceManager"
-          class="com.sztx.se.dataaccess.mysql.source.DynamicCreateDataSourceManager">
+          class="com.kochiu.se.dataaccess.mysql.source.DynamicCreateDataSourceManager">
         <property name="dynamicDataSource" ref="dynamicDataSource"/>
     </bean>
 

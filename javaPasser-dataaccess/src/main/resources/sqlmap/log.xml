@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.sztx.javaPasser.dataaccess.dao.mysql.LogMysqlDAO">
+<mapper namespace="com.kochiu.javaPasser.dataaccess.dao.mysql.LogMysqlDAO">
 
-    <resultMap type="com.sztx.javaPasser.dataaccess.domain.LogDO" id="log">
+    <resultMap type="com.kochiu.javaPasser.dataaccess.domain.LogDO" id="log">
         <result column="id" property="id"/>
         <result column="content" property="content"/>
         <result column="execute_times" property="executeTimes"/>

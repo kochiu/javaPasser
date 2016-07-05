@@ -124,16 +124,16 @@
     <logger name="java.sql.Statement" level="${logback.sql.level}"/>
     <logger name="java.sql.PreparedStatement" level="${logback.sql.level}"/>
     <logger name="java.sql.ResultSet" level="${logback.sql.level}"/>
-    <logger name="com.sztx.se.dataaccess.mysql.source.interceptor.SqlLogInterceptor" level="${logback.sql.level}">
+    <logger name="com.kochiu.se.dataaccess.mysql.source.interceptor.SqlLogInterceptor" level="${logback.sql.level}">
         <appender-ref ref="sql"/>
     </logger>
-    <logger name="com.sztx.se.core.mq.consumer.MqMessageListener" level="${logback.mq.level}">
+    <logger name="com.kochiu.se.core.mq.consumer.MqMessageListener" level="${logback.mq.level}">
         <appender-ref ref="mq_message"/>
     </logger>
-    <logger name="com.sztx.se.core.mq.source.DynamicMqMessageSender" level="${logback.mq.level}">
+    <logger name="com.kochiu.se.core.mq.source.DynamicMqMessageSender" level="${logback.mq.level}">
         <appender-ref ref="mq_message"/>
     </logger>
-    <logger name="com.sztx.se.rpc.dubbo.client.DubboClientFilter" level="${logback.dubbo.level}">
+    <logger name="com.kochiu.se.rpc.dubbo.client.DubboClientFilter" level="${logback.dubbo.level}">
         <appender-ref ref="dubbo"/>
     </logger>
 

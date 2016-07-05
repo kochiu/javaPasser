@@ -15,7 +15,7 @@
 		http://www.springframework.org/schema/cache 
     	http://www.springframework.org/schema/cache/spring-cache.xsd">
 
-    <bean id="quartzConfigServer" class="com.sztx.se.core.quartz.config.QuartzConfigServer">
+    <bean id="quartzConfigServer" class="com.kochiu.se.core.quartz.config.QuartzConfigServer">
         <property name="applicationName" value="${org.quartz.application}"/>
         <property name="quartzProperties">
             <props>
@@ -39,15 +39,15 @@
         <property name="isDefault" value="${org.quartz.isDefault}"/>
     </bean>
 
-    <bean id="dynamicQuartz" class="com.sztx.se.core.quartz.source.DynamicQuartz">
+    <bean id="dynamicQuartz" class="com.kochiu.se.core.quartz.source.DynamicQuartz">
         <property name="openLog" value="${logback.quartz.openLog}"/>
     </bean>
 
-    <bean id="dynamicCreateQuartzManager" class="com.sztx.se.core.quartz.source.DynamicCreateQuartzManager">
+    <bean id="dynamicCreateQuartzManager" class="com.kochiu.se.core.quartz.source.DynamicCreateQuartzManager">
         <property name="dynamicQuartz" ref="dynamicQuartz"/>
     </bean>
 
-    <bean id="quartzManager" class="com.sztx.se.core.quartz.component.QuartzManager">
+    <bean id="quartzManager" class="com.kochiu.se.core.quartz.component.QuartzManager">
         <property name="dynamicQuartz" ref="dynamicQuartz"/>
     </bean>
 

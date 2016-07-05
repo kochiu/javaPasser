@@ -7,7 +7,7 @@
 	     http://code.alibabatech.com/schema/dubbo
 	     http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-    <bean id="dubboConfigServer" class="com.sztx.se.rpc.dubbo.config.DubboConfigServer">
+    <bean id="dubboConfigServer" class="com.kochiu.se.rpc.dubbo.config.DubboConfigServer">
         <property name="applicationName" value="${dubbo.application}"/>
         <property name="registryAddress" value="${dubbo.registry}"/>
         <property name="registryUsername" value="${dubbo.username}"/>

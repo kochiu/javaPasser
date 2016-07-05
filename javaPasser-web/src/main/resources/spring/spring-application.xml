@@ -15,7 +15,7 @@
 		http://www.springframework.org/schema/cache 
     	http://www.springframework.org/schema/cache/spring-cache.xsd">
 
-    <bean id="applicationConfig" class="com.sztx.javaPasser.common.domain.ApplicationConfig">
+    <bean id="applicationConfig" class="com.kochiu.javaPasser.common.domain.ApplicationConfig">
         <property name="application" value="${application.name}"/>
         <property name="authKey" value="${application.auth.key}"/>
     </bean>

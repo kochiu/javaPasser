@@ -7,32 +7,32 @@
 	     http://code.alibabatech.com/schema/dubbo
 	     http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-    <bean id="demoRpcService" class="com.sztx.se.rpc.dubbo.provider.DubboService">
-        <property name="interfaceName" value="com.sztx.javaPasser.rpc.api.service.DemoRpcService"/>
+    <bean id="demoRpcService" class="com.kochiu.se.rpc.dubbo.provider.DubboService">
+        <property name="interfaceName" value="com.kochiu.javaPasser.rpc.api.service.DemoRpcService"/>
         <property name="interfaceRef" ref="demoRpcServiceImpl"/>
         <property name="protocols" value="${dubbo.protocols}"/>
         <property name="owner" value="gaochao"/>
     </bean>
 
-    <bean id="testRpcService" class="com.sztx.se.rpc.dubbo.provider.DubboService">
-        <property name="interfaceName" value="com.sztx.javaPasser.rpc.api.service.TestRpcService"/>
+    <bean id="testRpcService" class="com.kochiu.se.rpc.dubbo.provider.DubboService">
+        <property name="interfaceName" value="com.kochiu.javaPasser.rpc.api.service.TestRpcService"/>
         <property name="interfaceRef" ref="testRpcServiceImpl"/>
         <property name="protocols" value="${dubbo.protocols}"/>
         <property name="owner" value="gaochao"/>
     </bean>
 
-    <bean id="userRpcService" class="com.sztx.se.rpc.dubbo.provider.DubboService">
-    	<property name="interfaceName" value="com.sztx.javaPasser.rpc.api.service.UserRpcService" />
+    <bean id="userRpcService" class="com.kochiu.se.rpc.dubbo.provider.DubboService">
+    	<property name="interfaceName" value="com.kochiu.javaPasser.rpc.api.service.UserRpcService" />
     	<property name="interfaceRef" ref="userRpcServiceImpl" />
     	<property name="protocols" value="${dubbo.protocols}" />
     	<property name="owner" value="gaochao" />
     </bean>
 
-    <bean id="dynamicDubboProvider" class="com.sztx.se.rpc.dubbo.source.DynamicDubboProvider">
+    <bean id="dynamicDubboProvider" class="com.kochiu.se.rpc.dubbo.source.DynamicDubboProvider">
         <property name="openLog" value="${logback.dubbo.openLog}"/>
     </bean>
 
-    <bean id="dynamicCreateDubboProviderManager" class="com.sztx.se.rpc.dubbo.source.DynamicCreateDubboProviderManager">
+    <bean id="dynamicCreateDubboProviderManager" class="com.kochiu.se.rpc.dubbo.source.DynamicCreateDubboProviderManager">
         <property name="dynamicDubboProvider" ref="dynamicDubboProvider"/>
     </bean>
 

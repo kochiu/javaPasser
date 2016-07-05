@@ -7,7 +7,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.sztx.systemframework.javaPasser</groupId>
+    <groupId>com.kochiu.systemframework.javaPasser</groupId>
     <artifactId>javaPasser-project</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
@@ -42,9 +42,10 @@
         <dep.maven-checkstyle-plugin.version>2.12.1</dep.maven-checkstyle-plugin.version>
         <dep.findbugs-maven-plugin.version>2.5.1</dep.findbugs-maven-plugin.version>
         <!-- se -->
-        <sztx.module.se>1.1.7</sztx.module.se>
+        <kochiu.module.se>1.1.7</kochiu.module.se>
         <!-- rpc service version -->
-        <sztx.module.javaPasser.rpc.service>1.0.0</sztx.module.javaPasser.rpc.service>
+        <kochiu.module.javaPasser.rpc.service>1.0.0</kochiu.module.javaPasser.rpc.service>
+        <kochiu.module.javaPasser.sdk>1.0.0</kochiu.module.javaPasser.sdk>
     </properties>
     <prerequisites>
         <maven>${jm.maven.version}</maven>
@@ -53,15 +54,20 @@
         <dependencies>
             <!-- se -->
             <dependency>
-                <groupId>com.sztx.systemframework</groupId>
+                <groupId>com.kochiu.systemframework</groupId>
                 <artifactId>se</artifactId>
-                <version>${sztx.module.se}</version>
+                <version>${kochiu.module.se}</version>
             </dependency>
             <!-- javaPasser rpc service -->
             <dependency>
-                <groupId>com.sztx.systemframework.javaPasser</groupId>
+                <groupId>com.kochiu.systemframework.javaPasser</groupId>
                 <artifactId>javaPasser-rpc-api</artifactId>
-                <version>${sztx.module.javaPasser.rpc.service}</version>
+                <version>${kochiu.module.javaPasser.rpc.service}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kochiu.javaPasser.sdk</groupId>
+                <artifactId>javaPasser-sdk</artifactId>
+                <version>${kochiu.module.javaPasser.sdk}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

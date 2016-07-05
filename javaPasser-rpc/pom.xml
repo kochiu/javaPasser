@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.sztx.systemframework.javaPasser</groupId>
+        <groupId>com.kochiu.systemframework.javaPasser</groupId>
         <artifactId>javaPasser-project</artifactId>
         <version>1.0.0</version>
     </parent>
@@ -104,7 +104,7 @@
                         <configuration>
                             <attachToBuild>true</attachToBuild>
                             <classifier>onejar</classifier>
-                            <mainClass>com.sztx.se.core.container.DefaultContainer</mainClass>
+                            <mainClass>com.kochiu.se.core.container.DefaultContainer</mainClass>
                         </configuration>
                         <goals>
                             <goal>one-jar</goal>

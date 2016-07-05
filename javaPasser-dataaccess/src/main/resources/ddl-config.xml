@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<config xmlns="http://code.sztx.com/schema/ddl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://code.sztx.com/schema/ddl ddl-config.xsd">
+<config xmlns="http://code.kochiu.com/schema/ddl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://code.kochiu.com/schema/ddl ddl-config.xsd">
     <tables>
         <table table="log" column="username" tableNum="2" db="demo"/>
     </tables>

@@ -24,7 +24,7 @@
     <!--
         <filter>
             <filter-name>WebContextFilter</filter-name>
-            <filter-class>com.sztx.se.web.filter.WebContextFilter</filter-class>
+            <filter-class>com.kochiu.se.web.filter.WebContextFilter</filter-class>
         </filter>
         <filter-mapping>
             <filter-name>WebContextFilter</filter-name>
