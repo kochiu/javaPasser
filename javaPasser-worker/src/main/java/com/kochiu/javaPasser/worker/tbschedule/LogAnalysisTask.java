@@ -28,6 +28,18 @@ public class LogAnalysisTask extends BaseTask<LogDO> {
     }
 
     @Override
+    public boolean execute(LogDO[] object, String ownSign){
+
+        return true;
+    }
+
+    @Override
+    public Object executeTask(LogDO[] object, String ownSign){
+
+        return true;
+    }
+
+    @Override
     public Comparator<LogDO> getComparator() {
         return new Comparator<LogDO>() {
             @Override

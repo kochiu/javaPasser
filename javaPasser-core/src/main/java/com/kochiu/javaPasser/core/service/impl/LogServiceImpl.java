@@ -1,14 +1,15 @@
 package com.kochiu.javaPasser.core.service.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.kochiu.javaPasser.core.service.LogService;
-import org.springframework.stereotype.Service;
-
+import com.kochiu.javaPasser.dataaccess.dao.mysql.LogMysqlDAO;
 import com.kochiu.javaPasser.dataaccess.domain.LogDO;
 import com.kochiu.se.common.util.validate.ValidateUtil;
 import com.kochiu.se.core.service.impl.BaseServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service("logService")
 public class LogServiceImpl extends BaseServiceImpl implements LogService {
@@ -26,8 +27,7 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
             taskItemIds.add(id);
         }
 
-//		return logMysqlDAO.findUnHandleLogsForSchedule(taskItemNum, taskItemIds, fetchNum);
-        return null;
+		return logMysqlDAO.findUnHandleLogsForSchedule(taskItemNum, taskItemIds, fetchNum);
     }
 
     @Override
@@ -43,8 +43,11 @@ public class LogServiceImpl extends BaseServiceImpl implements LogService {
             taskItemIds.add(id);
         }
 
-//		int result = logMysqlDAO.updateLogsForSchedule(taskItemIds, oldStatusList, newStatus, num);
+		int result = logMysqlDAO.updateLogsForSchedule(taskItemIds, oldStatusList, newStatus, num);
         return false;
     }
+
+    @Autowired
+    private LogMysqlDAO logMysqlDAO;
 
 }

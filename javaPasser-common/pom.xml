@@ -15,11 +15,6 @@
     <description>javaPasser common pacakge</description>
 
     <dependencies>
-        <!-- se -->
-        <dependency>
-            <groupId>com.kochiu.systemframework</groupId>
-            <artifactId>se</artifactId>
-        </dependency>
         <dependency>
             <groupId>com.kochiu.javaPasser.sdk</groupId>
             <artifactId>javaPasser-sdk</artifactId>

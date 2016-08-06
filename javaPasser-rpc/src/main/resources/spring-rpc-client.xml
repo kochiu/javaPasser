@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+           xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+           xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns:cache="http://www.springframework.org/schema/cache"
+           xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://www.springframework.org/schema/cache
+    	http://www.springframework.org/schema/cache/spring-cache.xsd
+	     http://code.alibabatech.com/schema/dubbo
+	     http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 自动扫描的包名 -->
+    <context:component-scan
+            base-package="com.kochiu.javaPasser.core.*,com.kochiu.javaPasser.dataaccess.*,com.kochiu.javaPasser.rpc.*,com.kochiu.se.web.*,com.kochiu.se.core.*,com.kochiu.se.dataaccess.*,com.kochiu.se.unit.*,com.kochiu.se.rpc.*"/>
+
+
+
+
+    <import resource="spring/spring-aop.xml"/>
+
+    <bean id="dubboConfigServer" class="com.kochiu.se.rpc.dubbo.config.DubboConfigServer">
+        <property name="applicationName" value="${dubbo.application}"/>
+        <property name="registryAddress" value="${dubbo.registry}"/>
+        <property name="registryUsername" value="${dubbo.username}"/>
+        <property name="registryPassword" value="${dubbo.password}"/>
+        <property name="isDefault" value="${dubbo.isDefault}"/>
+    </bean>
+
+    <bean id="demoRpcService" class="com.kochiu.se.rpc.dubbo.client.DubboClient">
+        <property name="interfaceName" value="com.kochiu.javaPasser.rpc.api.service.DemoRpcService"/>
+        <property name="protocol" value="dubbo"/>
+    </bean>
+
+    <bean id="testRpcService" class="com.kochiu.se.rpc.dubbo.client.DubboClient">
+        <property name="interfaceName" value="com.kochiu.javaPasser.rpc.api.service.TestRpcService"/>
+        <property name="protocol" value="dubbo"/>
+    </bean>
+
+    <bean id="userRpcService" class="com.kochiu.se.rpc.dubbo.client.DubboClient">
+        <property name="interfaceName" value="com.kochiu.javaPasser.rpc.api.service.UserRpcService"/>
+        <property name="protocol" value="dubbo"/>
+    </bean>
+
+    <bean id="dynamicDubboClient" class="com.kochiu.se.rpc.dubbo.source.DynamicDubboClient">
+        <!--<property name="openLog" value="${logback.dubbo.openLog}"/>-->
+    </bean>
+
+    <bean id="dynamicCreateDubboClientManager" class="com.kochiu.se.rpc.dubbo.source.DynamicCreateDubboClientManager">
+        <property name="dynamicDubboClient" ref="dynamicDubboClient"/>
+    </bean>
+
+</beans>

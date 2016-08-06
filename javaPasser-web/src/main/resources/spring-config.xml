@@ -26,11 +26,9 @@
     <import resource="spring/spring-rpc/spring-rpc.xml" />
     <import resource="spring/spring-mq/spring-mq.xml" />
     <import resource="spring/spring-redis.xml" />
-    <!--
     <import resource="spring/spring-schedule.xml" />
     <import resource="spring/spring-fastdfs.xml" />
-
-    -->
+    <!--<import resource="spring/spring-kafka/spring-kafka.xml" />-->
     <!--
     <import resource="spring/spring-memcache.xml" />
     <import resource="spring/spring-hbase.xml" />
