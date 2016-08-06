@@ -30,7 +30,7 @@ public class MailSender {
         // 发件人的账号
         props.put("mail.user", "eddie_520@163.com");
         // 访问SMTP服务时需要提供的密码
-        props.put("mail.password", "gc26127166");
+        props.put("mail.password", "");
 
         // 构建授权信息，用于进行SMTP进行身份验证
         Authenticator authenticator = new Authenticator() {

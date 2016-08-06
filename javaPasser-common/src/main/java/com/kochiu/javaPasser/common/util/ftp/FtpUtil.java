@@ -204,7 +204,7 @@ public class FtpUtil {
         Ftp f = new Ftp();
         f.setIpAddr("139.129.142.97");
         f.setUserName("qxu1590290100");
-        f.setPwd("gc26127166");
+        f.setPwd("");
         // 下一行是上传整个目录
         f.setPath("/");
         // 下一行是上传单个文件
