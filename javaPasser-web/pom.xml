@@ -21,6 +21,11 @@
             <artifactId>javaPasser-core</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <!--<dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka_2.10</artifactId>
+            <version>0.8.0</version>
+        </dependency>-->
     </dependencies>
     <!-- 多环境打包 -->
     <profiles>

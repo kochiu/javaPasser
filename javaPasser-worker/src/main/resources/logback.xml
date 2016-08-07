@@ -140,4 +140,4 @@
         <appender-ref ref="console"/>
         <appender-ref ref="${logback.appender.name}"/>
     </root>
-</configuration>  
+</configuration>
